@@ -1,4 +1,4 @@
-import { Component ,OnInit} from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { MediaItemService } from '../media-item.service';
 
 @Component({
@@ -15,6 +15,4 @@ constructor(private mediaItemService: MediaItemService) {}
   onMediaItemDelete(mediaItem:any) {
   this.mediaItemService.delete(mediaItem);
   }
-  
-
 }
