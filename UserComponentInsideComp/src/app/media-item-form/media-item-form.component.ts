@@ -2,7 +2,7 @@ import { Component ,OnInit,Inject} from '@angular/core';
 import { FormGroup, FormControl,Validators,FormBuilder } from '@angular/forms';
 import { max } from 'rxjs';
 import { MediaItemService } from '../media-item.service';
-import { lookupListToken } from '../Provider';
+import { lookupListToken } from '../provider';
 
 @Component({
   selector: 'app-media-item-form',
@@ -55,7 +55,7 @@ export class MediaItemFormComponent implements OnInit {
 
   onSubmit(mediaItem:any) {
     console.log(mediaItem);
-    this.mediaItemService.add(mediaItem);
+    this.mediaItemService.add(mediaItem).subscribe();
   }
 
 }

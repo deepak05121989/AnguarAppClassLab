@@ -6,7 +6,9 @@ import { MediaItemComponent } from './media-item/media-item.component';
 import { MediaListItemComponent } from './media-list-item/media-list-item.component';
 import { MediaItemFormComponent } from './media-item-form/media-item-form.component';
 //import { MediaItemService } from './media-item.service'; 
-import { lookupListToken ,lookupLists } from './Provider';
+import { lookupListToken ,lookupLists } from './provider';
+import { HttpClientModule,HttpXhrBackend } from '@angular/common/http';
+import { MockXHRBackend } from './mock-xhr-backend';
 
 
 @NgModule({
@@ -18,12 +20,14 @@ import { lookupListToken ,lookupLists } from './Provider';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     //MediaItemService
     // { provide: 'lookupListToken', useValue: lookupLists }
-    { provide: lookupListToken, useValue: lookupLists }
+    { provide: lookupListToken, useValue: lookupLists },
+    { provide: HttpXhrBackend, useClass: MockXHRBackend }
   ],
   bootstrap: [AppComponent]
 })
